@@ -33,6 +33,7 @@ public class Consumer {
                     try {
                         doWork(message);
                     }finally {
+                        System.out.println("down");
                         //multiple：是否批量.true:将一次性ack所有小于deliveryTag的消息。
                         channel.basicAck(envelope.getDeliveryTag(),false);
                     }

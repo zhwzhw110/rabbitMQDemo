@@ -33,13 +33,15 @@ public class Consumer2 {
                     try {
                         doWork(message);
                     }finally {
+                        System.out.println("down");
                         //multiple：是否批量.true:将一次性ack所有小于deliveryTag的消息。
-                        channel.basicAck(envelope.getDeliveryTag(),false);
+                        channel.basicAck(envelope.getDeliveryTag(),false); //手动应答ack
                     }
             }
         };
-        //自动回复队列应答 -- RabbitMQ中的消息确认机制，后面章节会详细讲解
-        //false  autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、channel.nack、channel.basicReject 进行消息应答
+        //自动回复队列应答
+        //false:设置成false 自动应答机制
+        // autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、channel.nack、channel.basicReject 进行消息应答
         channel.basicConsume(queue_name, false, consumer);
     }
 
