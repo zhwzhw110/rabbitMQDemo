@@ -8,7 +8,7 @@ import com.rabbitmq.client.MessageProperties;
 /**
  * @author: zhangHaiWen
  * @date : 2018/4/17 0017 下午 2:53
- * @DESC :
+ * @DESC : 消息分发，多个消费者一个 提供者
  */
 public class Producer {
 
