@@ -65,7 +65,6 @@ public class ChannelDemo {
             byteBuf.flip();//转化为写模式
             socketChannel.write(byteBuf);
 
-
             socketChannel.close();
             serverchannel.close();
 
